@@ -15,7 +15,7 @@ type Workflow struct {
 	Version     string            `json:"version"`
 	Description string            `json:"description,omitempty"`
 	EntryPoint  string            `json:"entry_point"` // Step ID that begins execution
-	Steps       map[string]*Step  `json:"steps"`       // All steps keyed by unique ID
+	Steps       []*Step           `json:"steps"`       // All steps keyed by unique ID
 	Settings    map[string]string `json:"settings,omitempty"`
 	CreatedAt   time.Time         `json:"created_at"`
 	UpdatedAt   time.Time         `json:"updated_at"`

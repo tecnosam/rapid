@@ -4,24 +4,6 @@ type Step interface {
 	GetNext() []*Step
 }
 
-type StepCore struct {
-	StepType StepType
-	Args     []string
-	next     []*Step // nil means terminal step
-}
-
-func NewStepCore(stepType StepType, args []string, next []*Step) StepCore {
-	return StepCore{
-		StepType: stepType,
-		Args:     args,
-		next:     next,
-	}
-}
-
-func (s *StepCore) GetNext() []*Step {
-	return s.next
-}
-
 type JSONProperty struct {
 	Type ValidJSONType
 }
@@ -33,12 +15,12 @@ type JSONReturnSchema struct {
 }
 
 type LLMCallStep struct {
-	Core            StepCore
-	Provider        string
-	Model           *string
-	Prompt_template *string
-	ReturnType      string
-	JSONSchema      *JSONReturnSchema
+	Core           StepCore
+	Provider       string
+	Model          *string
+	PromptTemplate *string
+	ReturnType     DataType
+	JSONSchema     *JSONReturnSchema
 }
 
 func (s *LLMCallStep) GetNext() []*Step {

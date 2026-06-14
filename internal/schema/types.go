@@ -29,16 +29,20 @@ const (
 
 const (
 	Pending StepStatus = "pending"
-	Queued  StepStatus = "queued" // Ready to run but can't for some reason
+	Ready   StepStatus = "ready" // Ready to run but can't for some reason
 	Running StepStatus = "running"
 	Skipped StepStatus = "skipped"
 	Failed  StepStatus = "failed"  // failed for user, calculation, or Third Party reason
 	Crashed StepStatus = "crashed" // Runtime error
+	Success StepStatus = "success"
 )
 
 const (
 	TypeBoolean DataType = "BOOLEAN"
 	TypeNumber  DataType = "NUMBER"
 	TypeString  DataType = "STRING"
-	TypeObject  DataType = "OBJECT"
+
+	TypeBooleanSequence DataType = "BOOLEAN_SEQUENCE"
+	TypeNumSequence     DataType = "NUMBER_SEQUENCE"
+	TypeStringSequence  DataType = "STRING_SEQUENCE"
 )
